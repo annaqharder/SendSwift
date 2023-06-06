@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("./models/user"); // needs to be before line 4
 require("./services/passport");
-require("./models/user");
 const authRoutes = require("./routes/authRoutes");
 const keys = require("./config/keys");
 
