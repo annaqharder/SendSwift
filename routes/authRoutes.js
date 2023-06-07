@@ -4,12 +4,18 @@ module.exports = (app) => {
   // route handler to Google OAuth
   app.get(
     "/auth/google",
-    passport.authenticate("google", (req, res) => {
-      res.redirect("/surveys");
+    passport.authenticate("google", {
+      scope: ["profile", "email"],
     })
   );
   // route handler for google/auth/callback
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
 
   // route to log out user
   app.get("/api/logout", (req, res) => {
