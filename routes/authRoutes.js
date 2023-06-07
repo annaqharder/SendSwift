@@ -4,8 +4,8 @@ module.exports = (app) => {
   // route handler to Google OAuth
   app.get(
     "/auth/google",
-    passport.authenticate("google", {
-      scope: ["profile", "email"],
+    passport.authenticate("google", (req, res) => {
+      res.redirect("/surveys");
     })
   );
   // route handler for google/auth/callback
