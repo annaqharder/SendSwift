@@ -12,7 +12,7 @@ module.exports = (app) => {
   app.get("/auth/google/callback", passport.authenticate("google"));
 
   // route to log out user
-  app.get("api/logout", (req, res) => {
+  app.get("/api/logout", (req, res) => {
     req.logout();
     res.send(req.user);
   });
