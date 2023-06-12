@@ -20,7 +20,7 @@ module.exports = (app) => {
   // route to log out user
   app.get("/api/logout", (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect("/");
   });
 
   // route to see who is current_user logged in
