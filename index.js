@@ -5,6 +5,7 @@ const passport = require("passport");
 const keys = require("./config/keys");
 require("./models/User"); // needs to be before line 4
 require("./services/passport");
+require("./models/Survey");
 const authRoutes = require("./routes/authRoutes");
 const billingRoutes = require("./routes/billingRoutes");
 const bodyParser = require("body-parser");
@@ -37,7 +38,7 @@ if (process.env.NODE_ENV === "production") {
   // if it doesn't recognize the route
   const path = require("path");
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "built", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
